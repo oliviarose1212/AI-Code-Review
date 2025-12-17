@@ -1,11 +1,13 @@
-# backend/app/main.py
+import os
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.getcwd(), "backend", ".env"))
 from fastapi import FastAPI
+from backend.app.webhook import router as webhook_router   # <-- FIXED IMPORT
 
-app = FastAPI(title="AI Code Review - Backend", version="0.1.0")
+app = FastAPI(title="AI Code Review Backend")
+
+app.include_router(webhook_router)
 
 @app.get("/health")
 async def health():
-    """
-    Simple health endpoint
-    """
     return {"status": "ok"}

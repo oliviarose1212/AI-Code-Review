@@ -27,3 +27,5 @@ secrets/
 
 # Local dev artifacts
 /tmp/
+backend/.env
+backend/secrets
