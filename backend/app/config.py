@@ -1,7 +1,7 @@
 # backend/app/config.py
 from dotenv import load_dotenv
 import os
-
+USE_MOCK_AI = os.getenv("USE_MOCK_AI", "true").lower() == "true"
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 DATABASE_URL = os.getenv("DATABASE_URL")
